@@ -19,82 +19,38 @@ export class ItemInfoComponent implements OnChanges {
       this.loadComplete = false;
       const localObs = [];
 
-      if (this.swItem.planets) {
-        for (let j = 0; j < this.swItem.planets.length; j++) {
-          const obser = this.apiService.getPlanet(this.swItem.planets[j]);
-          localObs.push(obser);
-          obser.subscribe(
-            res => this.swItem.planets[j] = res.name
-          );
-        }
-      }
+      const keys = [
+        this.swItem.planets, 
+        this.swItem.characters, 
+        this.swItem.starships, 
+        this.swItem.species, 
+        this.swItem.vehicles,
+        this.swItem.pilots,
+        this.swItem.films];
 
-      if (this.swItem.characters) {
-        for (let j = 0; j < this.swItem.characters.length; j++) {
-          const obser = this.apiService.getCharacter(this.swItem.characters[j]);
-          localObs.push(obser);
-          obser.subscribe(
-            res => this.swItem.characters[j] = res.name
-          );
-        }
-      }
-
-      if (this.swItem.starships) {
-        for (let j = 0; j < this.swItem.starships.length; j++) {
-          const obser = this.apiService.getStarship(this.swItem.starships[j]);
-          localObs.push(obser);
-          obser.subscribe(
-            res => this.swItem.starships[j] = res.name
-          );
-        }
-      }
-
-      if (this.swItem.films) {
-        for (let j = 0; j < this.swItem.films.length; j++) {
-          const obser = this.apiService.getFilm(this.swItem.films[j]);
-          localObs.push(obser);
-          obser.subscribe(
-            res => this.swItem.films[j] = res.title
-          );
+      for (let i=0; i<keys.length; i++) {
+        if (keys[i] && keys[i].length > 0) {
+          for (let j = 0; j < keys[i].length; j++) {
+            const obser = this.apiService.getUrl(keys[i][j]);
+            localObs.push(obser);
+            obser.subscribe(
+              res => {
+                if (keys[i] == this.swItem.films) {
+                  keys[i][j] = res.title;
+                } else {
+                  keys[i][j] = res.name;
+                }
+              });
+          }
         }
       }
 
       if (this.swItem.homeworld) {
-          const obser = this.apiService.getPlanet(this.swItem.homeworld);
+          const obser = this.apiService.getUrl(this.swItem.homeworld);
           localObs.push(obser);
           obser.subscribe(
             res => this.swItem.homeworld = res.name
           );
-      }
-
-      if (this.swItem.pilots && this.swItem.pilots.length > 0) {
-        for (let j = 0; j < this.swItem.pilots.length; j++) {
-          const obser = this.apiService.getCharacter(this.swItem.pilots[j]);
-          localObs.push(obser);
-          obser.subscribe(
-            res => this.swItem.pilots[j] = res.name
-          );
-        }
-      }
-
-      if (this.swItem.species) {
-        for (let j = 0; j < this.swItem.species.length; j++) {
-          const obser = this.apiService.getSpecies(this.swItem.species[j]);
-          localObs.push(obser);
-          obser.subscribe(
-            res => this.swItem.species[j] = res.name
-          );
-        }
-      }
-
-      if (this.swItem.vehicles) {
-        for (let j = 0; j < this.swItem.vehicles.length; j++) {
-          const obser = this.apiService.getVehicle(this.swItem.vehicles[j]);
-          localObs.push(obser);
-          obser.subscribe(
-            res => this.swItem.vehicles[j] = res.name
-          );
-        }
       }
 
       forkJoin(localObs).subscribe(
