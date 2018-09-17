@@ -1,0 +1,73 @@
+@import "../../../common-style/common.scss";
+
+.content {
+  background-color: #fff;
+  width: 100%;
+  min-height: 600px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;
+  overflow: auto;
+
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .result,
+  .info-block {
+    float: left;
+  }
+
+  .result {
+    min-width: 35%;
+    margin-right: 5%;
+
+    .search-field {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+  
+    .list-field {
+      padding: 10px 20px;
+      min-height: 200px;
+      max-height: 200px;
+      overflow: auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+  
+      ul {
+        list-style-type: none;
+  
+        li {
+          padding: 5px 5px 5px 15px;
+          margin-bottom: 5px;
+          border-bottom: 1px solid #ccc;
+          font-size: 14px;
+          letter-spacing: 1px;
+          cursor: pointer;
+
+          &:hover {
+
+            p {
+              transform: scaleX(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .info-block {
+    width: 60%;
+
+    p {
+      font-size: 12px;
+      padding: 10px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div class="content">
+  <div class="result" *ngIf="listLoad">
+    <div class="search-field">
+      <i class="fas fa-search"></i>
+      <input type="text" class="search-item" placeholder="Search..." [(ngModel)]="searchItem">
+    </div>
+    
+    <div class="list-field">
+      <ul class="list" *ngFor="let swItem of swStaff | search:searchCondition:searchItem; let i = index">
+        <li (click)="chooseItem(swItem); clearInfo=true"><p> {{ swItem.title || swItem.name  }} </p></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-block" *ngIf="clearInfo">
+    <app-item-info *ngIf="loadChild" [swItem]="swItem"></app-item-info>
+  </div>
+  <div class="clearfix"></div>
+</div>

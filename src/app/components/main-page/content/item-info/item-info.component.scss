@@ -1,0 +1,50 @@
+@import "../../../../common-style/common.scss";
+
+.info-block {
+    font-size: 12px;
+    width: 100%;
+
+    .header{
+        text-align: center;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .info {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+
+        .column {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+    
+            div {
+                max-height: 150px;
+                min-width: 200px;
+                overflow: auto;
+                margin-right: 20px;
+                padding-bottom: 5px;
+                margin-top: 10px; 
+                border-bottom: 1px solid #ccc;
+
+                ul {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.loading {
+    margin-top: 50px;
+    text-align: center;
+}

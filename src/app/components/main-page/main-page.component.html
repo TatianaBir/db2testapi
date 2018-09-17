@@ -1,0 +1,5 @@
+<div class="container">
+  <h1>Star Wars</h1>
+  <app-tabs (tabChanged)="tabChanged($event, clearInfo)"></app-tabs>
+  <app-content [tabName]="tabName"></app-content>
+</div>

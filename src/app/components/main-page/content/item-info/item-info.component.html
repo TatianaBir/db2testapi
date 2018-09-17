@@ -1,0 +1,196 @@
+<div class="info-block" *ngIf="loadComplete">
+  
+  <div class="header">
+    <h3>{{ swItem.title || swItem.name}}</h3>
+    <p *ngIf="swItem.director">Director: <span class="bold">{{ swItem.director }}</span>. Film {{swItem.episode_id}}</p>
+  </div>
+
+  <div class="info">
+    
+    <div class="column">
+      <div id="one" *ngIf="swItem.characters">
+        <p class="bold">Characters:</p>
+        <ul>
+          <li *ngFor="let character of swItem.characters">{{ character }}</li>
+        </ul>
+      </div>
+  
+      <div *ngIf="swItem.planets && swItem.planets.length > 0">
+        <p class="bold">Planets:</p>
+        <ul>
+          <li *ngFor="let planet of swItem.planets">
+            {{ planet }}
+          </li>
+        </ul>
+      </div>
+    
+      <div *ngIf="swItem.starships && swItem.starships.length > 0">
+        <p class="bold">Ships:</p>
+        <ul>
+          <li *ngFor="let ship of swItem.starships">{{ ship }}</li>
+        </ul>
+      </div>
+    
+      <div *ngIf="swItem.films && swItem.films.length > 0">
+        <p class="bold">Films:</p>
+        <ul>
+          <li *ngFor="let film of swItem.films">{{ film }}</li>
+        </ul>
+      </div>
+    
+      <div *ngIf="swItem.species && swItem.species.length > 0">
+        <p class="bold">Species:</p>
+        <ul>
+          <li *ngFor="let spec of swItem.species">{{ spec }}</li>
+        </ul>
+      </div>
+    
+      <div *ngIf="swItem.vehicles && swItem.vehicles.length > 0">
+        <p class="bold">Vehicles:</p>
+        <ul>
+          <li *ngFor="let vehicle of swItem.vehicles">{{ vehicle }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="personal-info">
+      <div *ngIf="swItem.height">  
+        <p>  <span class="bold"> Height:</span> {{swItem.height}}</p>
+      </div>
+  
+      <div *ngIf="swItem.mass">  
+        <p>  <span class="bold"> Mass:</span> {{swItem.mass}}</p>
+      </div>
+  
+      <div *ngIf="swItem.hair_color">  
+        <p>  <span class="bold"> Hair color:</span> {{swItem.hair_color}}</p>
+      </div>
+  
+      <div *ngIf="swItem.skin_color">  
+        <p>  <span class="bold"> Skin color:</span> {{swItem.skin_color}}</p>
+      </div>
+      
+      <div *ngIf="swItem.birth_year">  
+        <p>  <span class="bold"> Birth year:</span> {{swItem.birth_year}}</p>
+      </div>
+  
+      <div *ngIf="swItem.gender">  
+        <p>  <span class="bold"> Gender:</span> {{swItem.gender}}</p>
+      </div>
+
+      <div *ngIf="swItem.rotation_period">  
+        <p>  <span class="bold"> Rotation period:</span> {{swItem.rotation_period}}</p>
+      </div>
+
+      <div *ngIf="swItem.orbital_period">  
+        <p>  <span class="bold"> Orbital period:</span> {{swItem.orbital_period}}</p>
+      </div>
+
+      <div *ngIf="swItem.diameter">  
+        <p>  <span class="bold"> Diameter:</span> {{swItem.diameter}}</p>
+      </div>
+
+      <div *ngIf="swItem.climate">  
+        <p>  <span class="bold"> Climate:</span> {{swItem.climate}}</p>
+      </div>
+      
+      <div *ngIf="swItem.gravity">  
+        <p>  <span class="bold"> Gravity:</span> {{swItem.gravity}}</p>
+      </div>
+
+      <div *ngIf="swItem.terrain">  
+        <p>  <span class="bold"> Terrain:</span> {{swItem.terrain}}</p>
+      </div>
+
+      <div *ngIf="swItem.surface_water">  
+        <p>  <span class="bold"> Surface water:</span> {{swItem.surface_water}}</p>
+      </div>
+
+      <div *ngIf="swItem.population">  
+        <p>  <span class="bold"> Population:</span> {{swItem.population}}</p>
+      </div>
+
+      <div *ngIf="swItem.classification">  
+        <p>  <span class="bold"> Classification:</span> {{swItem.classification}}</p>
+      </div>
+      
+      <div *ngIf="swItem.designation">  
+        <p>  <span class="bold"> Designation:</span> {{swItem.designation}}</p>
+      </div>
+
+      <div *ngIf="swItem.average_height">  
+        <p>  <span class="bold"> Average height:</span> {{swItem.average_height}}</p>
+      </div>
+
+      <div *ngIf="swItem.average_lifespan">  
+        <p>  <span class="bold"> Average lifespan:</span> {{swItem.average_lifespan}}</p>
+      </div>
+
+      <div *ngIf="swItem.language">  
+        <p>  <span class="bold"> Language:</span> {{swItem.language}}</p>
+      </div>
+      
+      <div *ngIf="swItem.model">  
+        <p>  <span class="bold"> Model:</span> {{swItem.model}}</p>
+      </div>
+
+      <div *ngIf="swItem.manufacturer">  
+        <p>  <span class="bold"> Manufacturer:</span> {{swItem.manufacturer}}</p>
+      </div>
+
+      <div *ngIf="swItem.cost_in_credits">  
+        <p>  <span class="bold"> Cost in credits:</span> {{swItem.cost_in_credits}}</p>
+      </div>
+
+      <div *ngIf="swItem.length">  
+        <p>  <span class="bold"> Length:</span> {{swItem.length}}</p>
+      </div>
+
+      <div *ngIf="swItem.max_atmosphering_speed">  
+        <p>  <span class="bold"> Max atmosphering speed:</span> {{swItem.max_atmosphering_speed}}</p>
+      </div>
+      
+      <div *ngIf="swItem.crew">  
+        <p>  <span class="bold"> Crew:</span> {{swItem.crew}}</p>
+      </div>
+
+      <div *ngIf="swItem.passengers">  
+        <p>  <span class="bold"> Passengers:</span> {{swItem.passengers}}</p>
+      </div>
+
+      <div *ngIf="swItem.cargo_capacity">  
+        <p>  <span class="bold"> Cargo capacity:</span> {{swItem.cargo_capacity}}</p>
+      </div>
+
+      <div *ngIf="swItem.consumables">  
+        <p>  <span class="bold"> Consumables:</span> {{swItem.consumables}}</p>
+      </div>
+
+      <div *ngIf="swItem.hyperdrive_rating">  
+        <p>  <span class="bold"> Hyperdrive rating:</span> {{swItem.hyperdrive_rating}}</p>
+      </div>
+      
+      <div *ngIf="swItem.MGLT">  
+        <p>  <span class="bold"> MGLT:</span> {{swItem.MGLT}}</p>
+      </div>
+
+      <div *ngIf="swItem.starship_class">  
+        <p>  <span class="bold"> Starship class:</span> {{swItem.starship_class}}</p>
+      </div>
+
+      <div *ngIf="swItem.pilots && swItem.pilots.length > 0">
+        <p class="bold">Pilots:</p>
+        <ul>
+          <li *ngFor="let pilot of swItem.pilots">
+            {{ pilot }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="loading" *ngIf="!loadComplete">
+  <p>Loading...</p>
+</div>
